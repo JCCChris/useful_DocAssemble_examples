@@ -1,0 +1,25 @@
+---
+mandatory: True
+question: |
+  Custom element
+fields:
+  - "control input:": control_input
+  - no label: hidden_input
+    required: False
+  - html: |
+      My input: <input type="text" class="form-control" id="my_text_input" onchange="my_val=$('#my_text_input').val();$('#${encode_name("hidden_input")}').val(my_val);">
+script:
+  <script>
+  $(document).on('daPageLoad', function(){
+    hidden_val = $('#${encode_name("hidden_input")}').val();
+    $('#my_text_input').val(hidden_val);
+    $('#${encode_name("hidden_input")}').hide();
+  });
+  </script>
+---
+mandatory: True
+question: |
+  results
+subquestion: |
+  control input = ${control_input} <br>
+  my input = ${hidden_input}
