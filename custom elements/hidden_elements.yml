@@ -1,0 +1,14 @@
+# NOTE: ZmF2b3JpdGVfZnJ1aXQ = encode_name("favorite_fruit")
+question: |
+  I already know your favorite fruit. <a href="javascript:$('#ZmF2b3JpdGVfZnJ1aXQ').val('oranges!');">(change it to oranges)</a> <br><br>
+  <a href="javascript:alert($('#ZmF2b3JpdGVfZnJ1aXQ').val());">(peek at the answer)</a>
+fields:
+  - no label: favorite_fruit
+    required: False
+    default: apples
+    datatype: hidden
+---
+mandatory: True
+question: |
+  Your favorite fruit is
+  ${ favorite_fruit }.
