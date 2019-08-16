@@ -1,0 +1,13 @@
+# code provided by Jonathan Pyle of DocAssemble fame
+features:
+  javascript: datereplace.js
+---
+question: |
+  When were you born?
+fields:
+  - Date of birth: date_of_birth
+    datatype: date
+---
+mandatory: True
+question: |
+  You were born on ${ date_of_birth }.
