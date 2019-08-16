@@ -8,7 +8,7 @@ fields:
     required: False
   - html: |
       My input: <input type="text" class="form-control" id="my_text_input" onchange="my_val=$('#my_text_input').val();$('#${encode_name("hidden_input")}').val(my_val);">
-script:
+script: |
   <script>
   $(document).on('daPageLoad', function(){
     hidden_val = $('#${encode_name("hidden_input")}').val();
