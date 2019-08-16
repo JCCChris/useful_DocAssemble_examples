@@ -1,0 +1,36 @@
+objects:
+  - recipient: Individual
+  - sender: Individual
+---
+question: |
+  Do you want email?  Of course you do! Enter your info here!
+fields:
+  - First Name: recipient.name.first
+  - Last Name: recipient.name.last
+  - E-mail: recipient.email
+    datatype: email
+
+---
+mandatory: True
+question: |
+  We sent you an email, you're welcome!
+  <% email_sent_ok %>
+---
+code: |
+  # you must fill in these fields
+  sender.name.first = ""
+  sender.name.Last = ""
+  sender.email = ""
+  recipient.name.first = ""
+  recipient.name.Last = ""
+  recipient.email = ""
+  email_sent_ok = send_email(sender=sender,to=recipient, template=notification)
+---
+template: notification
+subject: |
+  Hello ${ recipient }!
+content: |
+  This is an e-mail sent from a
+  **docassemble** interview.
+
+  Have a nice day!
