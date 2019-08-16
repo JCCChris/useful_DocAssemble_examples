@@ -1,0 +1,57 @@
+---
+mandatory: True
+question: |
+  Date of birth selector example
+fields:
+  - no label: dob_month
+    datatype: hidden
+    required: False
+    default: "1"
+  - no label: dob_day
+    datatype: hidden
+    required: False
+    default: ""
+  - no label: dob_year
+    datatype: hidden
+    required: False
+    default: ""
+  - html: |
+      <div class="form-group row">
+        <div class="col-xs-3">
+          <select class="form-control a2p-month-selector"  id="inputDateMonth" onchange="$('#ZG9iX21vbnRo').val($('#inputDateMonth').val());"  required >
+            <option value="1">JAN</option>
+            <option value="2">FEB</option>
+            <option value="3">MAR</option>
+            <option value="4">APR</option>
+            <option value="5">MAY</option>
+            <option value="6">JUN</option>
+            <option value="7">JUL</option>
+            <option value="8">AUG</option>
+            <option value="9">SEP</option>
+            <option value="10">OCT</option>
+            <option value="11">NOV</option>
+            <option value="12">DEC</option>
+          </select>
+        </div>
+        <div class="col-xs-1">
+          <input class="form-control"  min="1" max="31" id="inputDateDay" placeholder="DD" value="" onchange="$('#ZG9iX2RheQ').val($('#inputDateDay').val());" data-msg-max="must be &lt;32" required maxlength="2" size="2"/>
+        </div>
+        <div class="col-xs-1">
+          <input class="form-control"  min="1900" id="inputDateYear" value="" onchange="$('#ZG9iX3llYXI').val($('#inputDateYear').val());" placeholder="YYYY" data-msg-min="must be &gt;1900" maxlength="4" size="4" required />
+        </div>
+      </div>
+script: |
+  <script>
+  $(document).on('daPageLoad', function(){
+    //comment here
+    $('#inputDateMonth').val($('#ZG9iX21vbnRo').val());
+    $('#inputDateYear').val($('#ZG9iX3llYXI').val());
+    $('#inputDateDay').val($('#ZG9iX2RheQ').val());
+  });
+  </script>
+# the JS code above copies the DA native element values into our custom elements so that they can retain the values upon the user pressing the back button
+#
+---
+mandatory: True
+question: |
+  dob month=${dob_month} dob day=${dob_day} dob year=${dob_year}
