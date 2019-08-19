@@ -1,0 +1,22 @@
+#provided by Jonathan Pyle
+#this hides selective elements - in this case, it hides the favorite vegetable
+# if you use this, the variables will be defined
+---
+mandatory: True
+question: |
+  What is your favorite fruit? ${encode_name('favorite_vegetable')}
+fields:
+  - 'Favorite fruit': favorite_fruit
+  - 'Favorite vegetable': favorite_vegetable
+    default: "green beans"
+script: |
+  <script>
+    $("#${ encode_name('favorite_vegetable')}").parent().parent().hide();
+  </script>
+---
+mandatory: True
+question: |
+  Results
+subquestion: |
+  fruit=${favorite_fruit}<br>
+  veggie=${favorite_vegetable}
