@@ -43,7 +43,7 @@ fields:
 script: |
   <script>
   $(document).on('daPageLoad', function(){
-    //comment here
+    //copy the values back into the custom fields
     $('#inputDateMonth').val($('#ZG9iX21vbnRo').val());
     $('#inputDateYear').val($('#ZG9iX3llYXI').val());
     $('#inputDateDay').val($('#ZG9iX2RheQ').val());
