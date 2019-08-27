@@ -1,0 +1,10 @@
+mandatory: True
+question: Headers
+subquestion: |
+  % for key, val in headers.items():
+  * **${ key }**: ${ val }
+  % endfor
+---
+code: |
+  import docassemble.base.functions
+  headers = docassemble.base.functions.this_thread.current_info.get('headers', dict())
