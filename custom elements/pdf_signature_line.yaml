@@ -1,0 +1,27 @@
+---
+code: |
+  someCondition = True
+---
+Mandatory: True
+question: |
+  Do you want to print and sign?
+attachment:
+  - name: Download
+    filename: SigLine
+    valid formats:
+      - pdf
+    description: |
+      Sig line
+    content: |
+      % if someCondition == True:
+      [SKIPLINE]
+      [SKIPLINE]
+      [SKIPLINE]
+      [SKIPLINE]
+      [SKIPLINE]
+      [SKIPLINE]
+      [SKIPLINE]
+      <div style="width:100%;"><hr width="100%"/></div>
+      \noindent\rule{10cm}{0.4pt}
+      Signature
+      % endif
